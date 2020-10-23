@@ -1,0 +1,1213 @@
+@define shortduration: 0.25s;
+@define shortmedduration: 0.3s;
+@define mediumduration: 0.4s;
+@define longduration: 1.7s;
+
+@keyframes 'profilecontent-perspective'
+{
+	from
+	{
+		perspective-origin: 60% 50% invert;
+	}
+
+	10%
+	{
+		perspective-origin: 64% 52% invert;
+	}
+
+	15%
+	{
+		perspective-origin: 64% 52% invert;
+	}
+	
+	25%
+	{
+		perspective-origin: 66% 55% invert;
+	}
+
+	50%
+	{
+		perspective-origin: 68% 60% invert;
+	}
+
+	75%
+	{
+		perspective-origin: 63% 52% invert;
+	}
+
+	80%
+	{
+		perspective-origin: 63% 52% invert;
+	}
+
+	to	
+	{
+		perspective-origin: 60% 50% invert;
+	}
+}
+
+#ProfileWrapper
+{
+	height: 100%;
+	width: 100%;
+	
+	opacity: 0.0;
+	transition-property: transform, position, opacity;
+	transition-duration: mediumduration;
+	transition-delay: 0s;
+	transition-timing-function: linear;
+}
+
+#ProfileWrapper.ProfileVisible
+{
+	transform: translatey( 0px );
+	opacity: 1.0;
+}
+
+#ProfileWrapper ProfilePanel
+{
+	opacity: 0.0;
+}
+
+#ProfileWrapper .ProfileInvisible
+{
+	opacity: 0.0;
+	transform: translate3d( 0px, 1280px, 1000px );
+}
+
+#ProfileWrapper:descendantfocus .ProfileVisible
+{
+	 opacity: 1.0;
+}
+
+
+#ProfileWrapper.ActivityFocused ProfilePanel#Profile,
+#ProfileWrapper.InventoryFocused ProfilePanel#Profile
+{
+	transform: translate3d( 0px, 1280px, 1000px );
+	opacity: 0.0;
+}
+
+#SpoofNotice
+{
+	font-size: 32px;
+	horizontal-align: right;
+	padding-right: 80px;
+	padding-top: 150px;
+	color: #fe4a0bff;
+}
+
+#ProfileNavBar
+{
+	width: 100%;
+	height: 80px;
+	margin-top: 115px;
+	padding-left: 95px;
+	padding-right: 100px;
+	opacity: 0.0;
+
+	flow-children: right;
+
+	transition-property: transform, position, opacity;
+	transition-duration: mediumduration;
+	transition-delay: 1.5s;
+	transition-timing-function: linear;
+
+}
+
+.ProfileVisible #ProfileNavBar,
+{
+	opacity: 1.0;
+	transition-duration: 0.0s;
+}
+
+#ProfileNavBar Label
+{
+	font-size: 36px;
+	font-weight: light;
+
+	color: tcexitrow;
+	opacity: 0.7;
+
+	transition-property: opacity, color;
+	transition-duration: 0.3s;
+	transition-delay: 0s;
+	transition-timing-function: bigpicture-ease-in-out;
+
+}
+
+#ProfileNavBar Button Label
+{
+	pre-transform-scale2d: 1.0;
+	
+	transition-property: opacity, color, pre-transform-scale2d;
+	transition-duration: 0.3s;
+	transition-delay: 0s;
+	transition-timing-function: bigpicture-ease-in-out;
+}
+
+#ProfileNavBar Button:Focus Label
+{
+	color: applabelselectedsolid;
+	opacity: 1.0;
+}
+
+#ProfileNavBar .Selected Label
+{
+	opacity: 1.0;
+	color: applabelsolid;
+	pre-transform-scale2d: 1.0;
+	
+	transition-property: opacity, color, pre-transform-scale2d;
+	transition-duration: 0.3s;
+	transition-delay: 0s;
+	transition-timing-function: bigpicture-ease-in-out;
+}
+
+#ProfileNavBar Button:hover Label
+{
+	opacity: 1.0;
+	pre-transform-scale2d: 1.04;
+}
+
+#ProfileNavBar Button.Selected:hover Label
+{
+	opacity: 1.0;
+	pre-transform-scale2d: 1.04;
+}
+
+#ProfileNavBar Button
+{
+
+	box-shadow: box_shadow_off_color -4.5px -4.5px 16px 10px;
+	border: 5px solid #fdfefe00;
+	color: carousel_title;
+	background-color: #0d192100;
+
+	transition-property: border, blur, background-color, color, transform, max-width, box-shadow;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-out;
+
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	margin: 5px;
+	margin-right: 30px;
+}	
+
+#ProfileNavBar Button:focus
+{
+	opacity: 1.0;
+	color: black;
+	background-color: gradient( linear, 0% 0%, 100% 100%, from( #fdfdfdff ), to( #bdbfbfff ) );
+
+	border: 5px solid #fdfefef0;
+
+	// Remove border, so we dont transition border out on focus lost, that looks weird.
+	transition-property: blur, background-color, color, max-width, transform;
+
+	transform: translatez( 0px );
+	box-shadow: box_shadow_on_color -4.5px -4.5px 16px 9px;
+
+	animation-name: main-button-glow-movement;
+	animation-duration: 1.7s;
+	animation-delay: 0.3s;
+	animation-timing-function: bigpicture-ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: normal;
+}
+
+#OverlayBasePanel ProfilePanel #ProfileContent.ProfileLoading,
+ProfilePanel #ProfileContent.ProfileLoading,
+{
+	transition-duration: 0.3s;
+	opacity: 0.0;
+	transform: translate3d( 0px, 1280px, 1000px );
+}
+
+#OverlayBasePanel ProfilePanel #ProfileContent.ProfileLoading.LoadingVisible,
+ProfilePanel #ProfileContent.ProfileLoading.LoadingVisible,
+{
+	opacity: 1.0;
+	transform: translate3d( 0px, 0px, 0px );
+}
+
+
+
+ProfilePanel
+{
+	width: 100%;
+	height: 948px;
+	vertical-align: bottom;
+
+	opacity: 0.0;
+
+	perspective-origin: 62% 5% invert;
+
+	transition-property: transform, position, opacity;
+	transition-duration: mediumduration;
+	transition-delay: 0s;
+	transition-timing-function: linear;
+}
+
+.ProfileVisible ProfilePanel
+{
+	opacity: 1.0;
+
+}
+
+.ProfileInvisible ProfilePanel
+{
+	opacity: 0.0;
+}
+
+ProfilePanel #ProfileContent,
+ProfilePanel #ContentRow
+{
+	width: 100%;
+	height: 100%;
+
+	perspective: 1000;
+	animation-name: profilecontent-perspective;
+	animation-duration: 20s;
+	animation-timing-function: bigpicture-ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: normal;
+
+	opacity: 0.0;
+	opacity-mask: url( "file://{images}/background_alpha_mask.png" ) 1.0;
+
+	transform-origin: 0% 0% parent-relative;
+	transform: translate3d( 0px, 1280px, 1000px );
+
+	transition-property: transform, position;
+	transition-duration: mediumduration;
+	transition-timing-function: bigpicture-ease-in-out;
+
+}
+
+#OverlayBasePanel ProfilePanel #ProfileContent,
+ProfilePanel #ProfileContent,
+ProfilePanel #ContentRow
+{
+	opacity: 1.0;
+	animation-name: none;
+	animation-duration: 0s;
+	box-shadow: #000000aa -2px -2px 4px 4px;
+	margin-top: 4px;
+
+	opacity-mask: url( "file://{images}/background_alpha_mask.png" ) 0.0;
+
+	transform: translateX( 0px );
+}
+
+@keyframes 'background-visible'
+{
+	0%
+	{
+		opacity: 0.0;
+	}
+
+	100%
+	{
+		opacity: 1.0;
+	}
+}
+
+ProfilePanel #ProfileContent
+{
+	opacity-mask: url( "file://{images}/background_alpha_mask.png" ) 0.0;
+	transform: translatex( 0px );
+	animation-name: none;
+}
+
+
+ProfilePanel .ProfileBackground
+{
+	width: 75%;
+	height: 75%;
+	
+	position: 12.5% 12.5% 0%;
+
+	pre-transform-scale2d: 1.33333;
+
+	opacity: 0.0;
+
+	transition-property: opacity;
+	transition-duration: mediumduration;
+	transition-delay: 0s;
+	transition-timing-function: linear;
+}
+
+#OverlayBasePanel .ProfileVisible .ProfilePanel .ProfileBackground,
+.ProfileVisible .ProfilePanel .ProfileBackground
+{
+	animation-duration: mediumduration;
+	animation-delay: 0.0s;
+	animation-timing-function: bigpicture-ease-in-out;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+
+	opacity: 1.0;
+}
+
+.ProfileVisible .ProfilePanel #UpperRow
+{
+	width: 100%;
+	height: 122px;
+	margin-top: 20px;
+	margin-left: 100px;
+	margin-right: 100px;
+
+}
+
+ProfilePanel #Loading
+{
+	width: 100%;
+	height: 100%;
+
+	background-image: url( "file://{images}/profile/activity_bg_wash.png" );
+	background-size: 100% 100%;
+}
+
+#Loading
+{
+	opacity: 0.0;
+	transition-property: opacity;
+	transition-duration: 0.25s;
+	transition-delay: 1.0s;
+}
+
+#Loading:focus
+{
+	opacity: 1.0;
+}
+
+#Loading #LoadingStatus
+{
+	align: center top;
+	margin-top: 300px;
+	width: 80%;
+	text-align: center;
+
+	color: detailsdatalabel;
+	font-size: 32px;
+}
+
+
+ProfilePanel LoadingThrobber
+{
+	horizontal-align: center;
+	margin-top: 350px;
+
+	opacity: 1.0;
+	pre-transform-scale2d: 0.85;
+
+}
+
+#Offline,
+#Error
+{
+	opacity: 0.0;
+	width: 100%;
+	height: 100%;
+	transition-property: opacity;
+	transition-duration: 0.23s;
+	transition-delay: 1.25s;
+
+	padding-bottom: 50px;
+}
+
+#OfflineMessage,
+#ErrorMessage
+{
+	flow-children: down;
+	width: 100%;
+	vertical-align: center;
+}
+
+#Loading,
+#OverlayBasePanel.Offline #Loading,
+.LoadError #Loading
+{
+	opacity: 0.0;
+}
+
+#OverlayBasePanel.Offline #Offline,
+.Offline #Offline,
+.LoadError #Error
+{
+	opacity: 1.0;
+	transition-delay: 0.0s;
+}
+
+#OfflineStatus1,
+#OfflineStatus2,
+#ErrorStatus1,
+#ErrorStatus2
+{
+	color: tcstatictext;
+	horizontal-align: center;
+
+	max-width: 75%;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+#OfflineStatus1,
+#ErrorStatus1
+{
+	font-size: largefontsize;
+}
+
+#OfflineStatus2,
+#ErrorStatus2
+{
+	font-size: medfontsize;
+	height: 200px;
+}
+
+.Offline #ProfileNavBar
+{
+	visibility: collapse;
+	opacity: 0.0;
+	height: 0px;
+}
+
+.Offline #ProfileWrapper.ActivityFocused #FriendActivity
+{
+	transform: translatey( 122px );
+	height: 958px;
+}
+
+ProfilePanel.ProfileLoaded, 
+ProfilePanel.ProfileVisible,
+ProfilePanel #ProfileBackground.ProfileBackground,
+ProfilePanel #FriendActivity,
+ProfilePanel #Inventory,
+{
+	opacity: 1.0;
+}
+
+/* Nx Styles to use across client */
+
+.NxLeftNav
+{
+	width: 425px;
+	height: 100%;
+	background-color: #00000000;
+	flow-children: down;
+}
+
+.NxLeftNavFullWrapper .ContentsWrapper
+{
+	width: 100%;
+	height: 100%;
+}
+
+.NxLeftNavFullWrapper .ShortcutOrMod .HorizontalRule
+{
+	visibility: collapse;
+}
+
+.NxLeftNavActionsWrapper
+{
+	width: 100%;
+	height: 100%;
+	flow-children: down;
+	opacity: 1.0;
+	overflow: squish scroll;
+
+	margin-top: 190px;
+	transition-duration: shortduration;
+	transition-property: opacity;
+	transition-timing-function: ease-out;
+
+}
+
+.NxLeftNavFullWrapper
+{
+	width: 100%;
+	height: 100%;
+}
+
+.NxLeftNavActionsWrapper VerticalScrollBar
+{
+	width: 6px;
+	margin: 3px;
+	border-radius: 0px;
+	height: 100%;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #c2c2c290 ), to( #d2d2d290 ) );
+//	background-color: gradient( linear, 0% 0%, 0% 100%, from( #ff0000 ), to( #ff0000 ) );
+	horizontal-align: right;
+	vertical-align: center;
+}
+
+.NxLeftNavActionsWrapper VerticalScrollBar .ScrollThumb
+{
+	background-color: #d2d2d2dd;
+//	background-color: #ff0000;
+}
+
+.NxLeftNav:focus .NxLeftNavActionsWrapper, .NxLeftNav:descendantfocus .NxLeftNavActionsWrapper
+{
+	opacity-mask-scroll-up: url( "file://{images}/library/scroll_data_mask_up.tga" );
+	opacity-mask-scroll-down: url( "file://{images}/library/scroll_data_mask_down.tga" );
+	opacity-mask-scroll-up-down: url( "file://{images}/library/scroll_data_mask_both.tga" );
+}
+
+.NxLeftNavButton
+{
+	width: 100%;
+	margin: 2px 10px 2px 10px;
+	padding: 10px 0px 0px 20px;
+	height: 48px;
+	flow-children: right;
+	box-shadow: none;
+	color: #67c1f5FF;
+//Library navigation button background
+//	background-color: gradient( linear, 85% 85%, 100% 100%, from( #272727FF ), to( #39393900 ) )!important;
+//	background-color: gradient( linear, 85% 85%, 100% 100%, from( #09334dFF ), to( #09334d00 ) );
+//	background-color: gradient( linear, 85% 85%, 100% 100%, from( #171717ff ), to( #292929ff ) );
+//	background-color: gradient( linear, 0% 0%, 100% 100%, from( #171717ff ), to( #292929ff ) );
+//	background-color: gradient( linear, 85% 85%, 100% 100%, from( #171717ff ), to( #10101000 ) );
+	background-color: gradient( linear, 25% 25%, 100% 100%, from( #161616ff ), to( #66666600 ) );
+
+}
+
+//Library navigation selected button background
+.NxLeftNavButton:selected {
+	background-color: #1579a0;
+//	background-color: #474747;
+}
+.NxLeftNavButton:selected Label {
+	color: #ffffff;
+}
+.NxLeftNavButton:selected Label .NumberElement {
+	color: #ffffff;
+}
+.NxLeftNavButton:selected Image {
+	wash-color: #ffffffff;
+}
+
+.NxLeftNavButtonAction
+{
+	width: 100%;
+	margin: 2px 10px 2px 10px;
+	padding: 10px 0px 0px 20px;
+	height: 48px;
+	flow-children: right;
+	box-shadow: none;
+	color: #67c1f5FF;
+//	color: #ff0000;
+
+//Library navigation special button background
+//	background-color: #171717FF;
+	background-color: gradient( linear, 85% 85%, 100% 100%, from( #09334dFF ), to( #09334d00 ) );
+
+	border-left-width: 5px;
+	border-left-style: solid;
+	border-left-color: #67c1f5FF;
+}
+
+.NxLeftNavButtonAction:focus {
+	border-left-width: 5px;
+	border-left-style: solid;
+	border-left-color: #ffffffFF;
+}
+
+
+.NxLeftNavButton Label,
+.NxLeftNavButtonAction Label
+{
+//width: 100%;
+	font-family: platformfont;
+	font-size: 26px;
+	font-weight: normal;
+	color: #67c1f5ff;
+//	color: #ff0000;
+
+	transition-property: transform;
+	transition-timing-function: ease-out;
+	transition-duration: 0.3s;
+}
+.NxLeftNavButton Label .NumberElement,
+.NxLeftNavButtonAction Label .NumberElement
+{
+
+}
+
+.ButtonFlowRight
+{
+	width: 100%;
+	flow-children: right;
+	transition-property: transform;
+	transition-timing-function: ease-out;
+	transition-duration: 0.3s;
+}
+
+.NxLeftNavButton:focus .ButtonFlowRight
+{
+	transform: translateX( 4px );
+}
+
+.NxLeftNavButton:focus .FilterHelp
+{
+	wash-color: #09334dEE;
+//	wash-color: #ff0000;
+}
+
+.ButtonCountCapsule
+{
+	flow-children: right;
+	horizontal-align: right;
+	margin-right: 16px;
+	margin-top: -1px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 1px;
+	border-radius: 8px;
+	height: 32px;
+	font-size: 24px;
+//	font-weight: bold;
+
+	background-color: #051e3388;
+//	background-color: #39393988;
+	color: #5aadde99;
+	opacity: 1.0;
+}
+
+
+.NxLeftNavButton:focus .ButtonCountCapsule
+{
+
+	background-color: #072e4755;
+//	background-color: #69696955;
+	color: #072e47;
+	opacity: 1.0;
+}
+
+
+.NxLeftNavButton:focus Label,
+.NxLeftNavButtonAction:focus Label
+{
+	color: #072e47;
+//	color: #ff0000;
+
+//transform: translateX( 7px );
+
+}
+.NxLeftNavButton:focus Label .NumberElement,
+.NxLeftNavButtonAction:focus Label .NumberElement
+{
+	color: #072e47;
+//	color: #ff0000;
+}
+
+
+.NxLeftNavButton.Locked
+{
+	wash-color: parental_locked_wash;
+}
+
+.NxLeftNavButton.Locked:focus
+{
+	wash-color: none;
+}
+
+.NxLeftNavButton.Locked Label
+{
+	width: fill-parent-flow(1.0);
+}
+
+.NxLeftNavButton Image,
+.NxLeftNavButtonAction Image
+{
+	vertical-align: center;
+	margin-right: 8px;
+	margin-bottom: 8px;
+	margin-left: -4px;
+	height: 32px;
+	width: 32px;
+	wash-color: #2976a3ff;
+//	wash-color: #ff0000ff;
+	opacity: 1.0;
+
+	transition-property: transform;
+	transition-timing-function: ease-out;
+	transition-duration: 0.3s;
+}
+
+.NxLeftNavButton:focus Image,
+.NxLeftNavButtonAction:focus Image
+{
+	wash-color: #09334dFF;
+//	wash-color: #ff0000FF;
+//transform: translateX( 4px );
+}
+
+.NxLeftNavButton.Locked Image
+{
+	opacity: 1.0;
+	wash-color: none;
+
+	transition-property: wash-color;
+	transition-duration: 0.08s;
+	transition-timing-function: bigpicture-ease-in-out;
+}
+
+.NxLeftNavButton.Locked:descendantfocus Image
+{
+	wash-color: #2f2f2fff;
+//	wash-color: #ff0000ff;
+}
+
+.NxLeftNavButton:hover,
+.NxLeftNavButtonAction:hover
+{
+	transition-duration: 0.23s !immediate;
+	box-shadow: none;
+
+// all_games_hover defined at library section
+	background-color: all_games_hover;
+}
+
+.NxLeftNavButton:hover Label
+{
+	color: applabelsolid;
+}
+
+.NxLeftNavButton:focus,
+.NxLeftNavButtonAction:focus
+{
+	// after clicking button also a color is given, action click button
+//	color: #ff0000FF;
+	color: #082846FF;
+//	background-color: gradient( linear, 0% 0%, 100% 100%, from( #696969ff ), to( #474747ff ) );
+//	background-color: gradient( linear, 0% 0%, 100% 100%, from( #66c0f4ff ), to( #b6e1faff ) );
+	background-color: gradient( linear, 0% 0%, 100% 100%, from( #15789eff ), to( #15789eff ) );
+
+	animation-name: nx-button-focus;
+	animation-duration: longduration;
+	animation-delay: shortduration;
+	animation-timing-function: bigpicture-ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: normal;
+}
+
+
+.NxLeftNav .SmallHeaderImage
+{
+	margin: 0px 10px 0px 10px;
+	width: 100%;
+	background-color: dialog_bg_color;
+}
+
+.NxLeftNav:descendantfocus, .NxLeftNav:focus
+{
+	z-index: 100;
+}
+
+.NxGridBackground
+{
+	width: 100%;
+	height: 100%;
+
+
+	margin-top: 4px;
+	box-shadow: #000000aa -2px -2px 4px 4px;
+
+	background-color: bgcolor;
+	background-image: url( "file://{images}/store/store_app_bg.png" );
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	background-size: 1920px 1080px;
+
+}
+
+//.NxGridButtonRow,
+//.ContentHover .NxGridButtonRow,
+//.ContentHover .NxGridButtonRow:descendantfocus
+//{
+//	padding-top: 37px;
+//	padding-left: 70px;
+//	width: 480px;
+//	height: 100%;
+//	flow-children: none;
+//	overflow: clip scroll;
+//
+//	transform: translateX( -35px ) translateY( -8px );
+//
+//	opacity: 0.5;
+//	transition-delay: 0.0s;
+//	transition-duration: supershortduration;
+//	transition-timing-function: bigpicture-ease-in-out;
+//	transition-property: transform, pre-transform-scale2d, opacity, opacity-mask;
+//	pre-transform-scale2d: 1;
+//
+//	opacity-mask: url( "file://{images}/library/NxGridButtonRow_right.tga" ) 1.0;
+//}
+
+.NxGridButtonRow:descendantfocus,
+.MenuHover .NxGridButtonRow,
+{
+	transform: translateX( 0px ) translateY( -8px );
+	opacity: 1;
+	opacity-mask: none;
+}
+
+.GamesButtonContainer
+{
+	width:100%;
+	flow-children: down;
+}
+
+.NxGridButtonWell
+{
+	width:100%;
+	height:840px;
+}
+
+.MenuHover .NxGridButtonRow .NxGridButtonWell,
+.NxGridButtonRow:descendantfocus .NxGridButtonWell,
+{
+	opacity: 0.0;
+}
+
+// library navigation menu glowing button
+@keyframes 'nx-button-focus'
+{
+	from
+	{
+		background-color: gradient( linear, 0% 0%, 100% 100%, from( #66c0f4ff ), to( #b6e1faff ) );
+	}
+
+	50%
+	{
+		background-color: gradient( linear, 0% 0%, 100% 100%, from( #66c0f4ff ), to( #1483baff ) );
+	}
+
+	to
+	{
+		background-color: gradient( linear, 0% 0%, 100% 100%, from( #66c0f4ff ), to( #b6e1faff ) );
+	}
+
+//	{
+//		background-color: gradient( linear, 0% 0%, 100% 100%, from( #696969ff ), to( #474747ff ) );
+//	}
+//
+//	50%
+//	{
+//		background-color: gradient( linear, 0% 0%, 100% 100%, from( #ffffffff ), to( #797979ff ) );
+//	}
+//
+//	to
+//	{
+//		background-color: gradient( linear, 0% 0%, 100% 100%, from( #696969ff ), to( #474747ff ) );
+//	}
+
+}
+
+@keyframes 'nx-filter-button-focus'
+{
+	from
+	{
+		background-color: gradient( linear, 0% 0%, 100% 100%, from( #66c0f4ff ), to( #b6e1faff ) );
+	}
+
+	50%
+	{
+		background-color: gradient( linear, 0% 0%, 100% 100%, from( #66c0f4ff ), to( #1484baff ) );
+	}
+
+	to
+	{
+		background-color: gradient( linear, 0% 0%, 100% 100%, from( #66c0f4ff ), to( #b6e1faff ) );
+	}
+
+//	{
+//		background-color: gradient( linear, 0% 0%, 100% 100%, from( #696969ff ), to( #474747ff ) );
+//	}
+//
+//	50%
+//	{
+//		background-color: gradient( linear, 0% 0%, 100% 100%, from( #ffffffff ), to( #797979ff ) );
+//	}
+//
+//	to
+//	{
+//		background-color: gradient( linear, 0% 0%, 100% 100%, from( #696969ff ), to( #474747ff ) );
+//	}
+}
+
+/* Right hand filter tab */
+
+.NxFilterTab
+{
+	width: 420px;
+	height: fit-children;
+	max-height: 700px;
+	opacity: 1.0;
+	position: 1825px 120px 0px;
+	margin-top: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	background-color: black;
+	overflow: clip;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #1184baee ), to( #0e2744ee ) );
+//	background-color: gradient( linear, 0% 0%, 100% 0%, from( #393939ee ), to( #272727ee ) );
+
+	box-shadow: fill #00000066 -4px -4px 6px 6px;
+
+	flow-children: down;
+
+	transition-property: position, color, background-color, transform, opacity, height, width, saturation;
+	transition-duration: supershortduration;
+	transition-timing-function: bigpicture-ease-in-out;
+	transition-delay: 0s;
+
+	z-index: 5;
+
+}
+
+.ContentAreaFocus .NxFilterTab,
+.ContentHover .NxFilterTab
+{
+	position: 1630px 120px 0px;
+}
+.MenuHover .NxFilterTab
+{
+	position: 1825px 120px 0px;
+}
+
+
+.NxFilterTab:descendantfocus
+{
+	opacity: 1.0;
+	saturation: 1.0;
+	transform: translatez( 20px );
+	position: 1480px 120px 0px;
+}
+
+.NxFilterTab ToggleButton.CheckBox,
+.NxFilterTab RadioButton,
+.NxFilterTab .NxTagHeader,
+.NxFilterTab Button,
+.NxFilterTab.EmptyFilter Button.NxFilterButton,
+.NxFilterTab DropDown
+{
+	height: 0px;
+
+	margin: 0px;
+}
+.NxFilterTab:descendantfocus ToggleButton,
+.NxFilterTab:descendantfocus RadioButton
+{
+	margin: 2px 10px 2px 0px;
+}
+
+.NxFilterTab:descendantfocus ToggleButton,
+.NxFilterTab ToggleButton:selected,
+.NxFilterTab:descendantfocus RadioButton,
+.NxFilterTab RadioButton:selected,
+.NxFilterTab:descendantfocus .NxTagHeader,
+.NxFilterTab:descendantfocus Button,
+.NxFilterTab:descendantfocus DropDown,
+.NxFilterTab .AlwaysVisible
+{
+	height: 48px;
+}
+
+.NxFilterTab .NxTagHeader.FilterHeader {
+	height: 56px;
+	margin-left: 10px;
+}
+
+.NxFilterTab .FilterHeader
+{
+	font-size: 34px;
+	color: #ffffff;
+
+}
+
+.NxFilterWrapper
+{
+	position: 150px 0px 0px;
+	width: 400px;
+	height: fit-children;
+	padding: 0px;
+	margin-left: 10px;
+	z-index: 10;
+
+	overflow: clip scroll;
+
+	flow-children: down;
+
+	transition-property: position, color, background-color, transform, opacity, height, width;
+	transition-duration: mediumduration;
+	transition-timing-function: bigpicture-ease-in-out;
+	transition-delay: 0s;
+
+}
+
+.NxFilterWrapper:descendantfocus
+{
+	position: 0px 0px 0px;
+	max-height: 600px;
+}
+
+.NxFilterButton
+{
+	width: 100%;
+	margin: 0px;
+	padding: 0px 0px 0px 10px;
+	height: 45px;
+
+	flow-children: right;
+	box-shadow: none;
+	color: #67c1f5FF;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #25a9df00 ), to( #082745ff) );
+//	background-color: gradient( linear, 0% 0%, 100% 0%, from( #ff0000 ), to( #ff0000) );
+
+}
+
+
+.NxFilterButton:selected {
+	background-color: #1579a0;
+//	background-color: #ff0000;
+}
+
+.NxFilterButton Label
+{
+	width: 100%;
+	font-family: platformfont;
+	font-size: 24px;
+	font-weight: normal;
+//	color: #ff0000ff;
+	color: #67c1f5ff;
+	vertical-align: center;
+}
+
+.NxFilterButton:focus Label
+{
+	color: #FFFFFF;
+}
+
+
+.NxFilterButton.Locked
+{
+	wash-color: parental_locked_wash;
+}
+
+.NxFilterButton.Locked:focus
+{
+	wash-color: none;
+}
+
+.NxFilterButton.Locked Label
+{
+	width: fill-parent-flow(1.0);
+}
+
+.NxFilterButton Image
+{
+	vertical-align: center;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	height: 32px;
+	width: 32px;
+	wash-color: #67c1f5ff;
+//	wash-color: #ff0000ff;
+	opacity: 1.0;
+}
+
+.NxFilterButton:focus Image
+{
+	vertical-align: center;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  height: 32px;
+  width: 32px;
+  wash-color: #ffffffff;
+//  wash-color: #ff0000ff;
+
+	opacity: 1.0;
+}
+
+.NxFilterButton.Locked Image
+{
+	opacity: 1.0;
+	wash-color: none;
+
+	transition-property: wash-color;
+	transition-duration: 0.08s;
+	transition-timing-function: bigpicture-ease-in-out;
+}
+
+.NxFilterButton.Locked:descendantfocus Image
+{
+	wash-color: #2f2f2fff;
+//	wash-color: #ff0000;
+}
+
+.NxFilterButton:focus
+{
+	color: #082846FF;
+//	color: #ff0000ff;
+	background-color: gradient( linear, 0% 0%, 100% 100%, from( #66c0f4ff ), to( #b6e1faff ) );
+//	background-color: gradient( linear, 0% 0%, 100% 100%, from( #ff0000ff ), to( #ff0000ff ) );
+
+
+	animation-name: nx-filter-button-focus;
+	animation-duration: longduration;
+	animation-delay: shortduration;
+	animation-timing-function: bigpicture-ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: normal;
+}
+
+
+.NxFilterButton:hover
+{
+	transition-duration: 0.23s !immediate;
+	box-shadow: none;
+}
+
+// filterbox glowing effect, like in shutdown menu or ok, cancel options and this filter radio box like nav menu
+@keyframes 'button-focus'
+{
+	from
+//	{
+//		background-color: gradient( linear, 0% 0%, 100% 100%, from( #474747ff ), to( #696969ff ) );
+//	}
+//
+//	50%
+//	{
+//		background-color: gradient( linear, 0% 0%, 100% 100%, from( #797979ff ), to( #ffffffff ) );
+//	}
+//
+//	to
+//	{
+//		background-color: gradient( linear, 0% 0%, 100% 100%, from( #474747ff ), to( #696969ff ) );
+//	}
+
+	{
+		background-color: gradient( linear, 0% 0%, 100% 100%, from( #66c0f4ff ), to( #b6e1faff ) );
+	}
+
+	50%
+	{
+		background-color: gradient( linear, 0% 0%, 100% 100%, from( #66c0f4ff ), to( #1483baff ) );
+	}
+
+	to
+	{
+		background-color: gradient( linear, 0% 0%, 100% 100%, from( #66c0f4ff ), to( #b6e1faff ) );
+	}
+}
+
+
+
